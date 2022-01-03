@@ -1,0 +1,55 @@
+body {
+    color: #333333;
+    font-family: arial;
+    max-width: 70%;
+    min-width: 400px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+    border: 1px solid red;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding-top: 16px 0;
+}
+
+.form-group {
+    display:block
+}
+
+.form-group > ul {
+    list-style: none;
+}
+
+#container {
+    border: 1px solid orange;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.basic-component {
+    float:left;
+    max-width:400px;
+    margin: 25px;
+    padding:10px;
+}
+
+#game {
+    min-width: 400px;
+    border:1px solid blue;
+}
+
+#participants > ul {
+    list-style-type: decimal;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    {{>header}}
+
+    <body>
+        {{title}}
+
+        <form action="/game">
+            <label>Nombre de usuario</label>
+            <input type="text" name="username" placeholder="nombre de usuario", required>
+
+            <label>Salón</label>
+            <input type="text" name="room" placeholder="nombre de salón">
+
+            <button>Ingresar</button>
+        </form>
+
+        {{>footer}}
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<div id = "game-configuration">
+    <h3>Configuración</h3>
+    <form>
+        <div class="form-group">
+            <label>Seleccione la cantidad de rondas</label>
+            <select>
+                {{#rounds}}
+                    <option value = "{{.}}">{{.}}</option>
+                {{/rounds}}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Selecciona las categorias para jugar</label>
+            <ul>
+                {{#categories}}
+                    <li><input type = "checkbox" name = "categories-selected" value = "{{.}}">{{.}}</li>
+                {{/categories}}
+            </ul>
+        </div>
+
+        <button>Configurar</button>
+    </form>
+</div>
