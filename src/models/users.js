@@ -11,14 +11,15 @@ class User {
 
     getById(id) {
         if (!id)
-            throw new Error('id is required')
+            throw new Error('id es requerido')
 
-        return users.find((user) => user.id === id)
+        const user = users.find((user) => user.id === id)
+        return user
     }
 
     getUsersByRoom(room) {
         if (!room && !this.room)
-            throw new Error("room is required")
+            throw new Error("room es requerido")
 
         if (!room)
             room = this.room

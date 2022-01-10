@@ -4,6 +4,7 @@ const socket = require('./utils/sockets')
 const socketio = require('socket.io')
 const User = require('./models/users')
 const { rooms } = require('./models/rooms')
+const Room = require('./models/rooms')
 const io = socketio(server)
 socket.init(io)
 
@@ -17,14 +18,17 @@ app.get('/game', (req, res) => {
     res.render('game')
 })
 
-app.get('/room/:id', (req, res) => {
+//Get users by room
+app.get('/users/:id', (req, res) => {
     const user = new User()
     const users = user.getUsersByRoom(req.params.id)
     res.status(200).send(users)
 })
 
-app.get('/rooms', (req, res) => {
-    res.status(200).send(rooms)
+//Get room by name
+app.get('/room/:id', (req, res) => {
+    const room = new Room().getByName(req.params.id)
+    res.status(200).send(room)
 })
 
 app.get('*', (req, res) => {

@@ -31,28 +31,28 @@ class Room {
         rooms.push(this)
     }
 
-    createRoomConfiguration({ categoriesSelected, rounds} = {}) {
+    createRoomConfiguration({ categoriesSelected, roundsSelected} = {}) {
         if (!this.name)
             throw new Error('Invalid model')
 
-        if (!this.status)
+        if (this.status)
             throw new Error('No es posible configurar una sala, la partida ya ha comenzado')
 
         if (!categoriesSelected)
             throw new Error('Categorías requeridas')
 
-        if (!rounds)
+        if (!roundsSelected)
             throw new Error('Cantidad de rondas requerida')
 
         if (categoriesSelected.length < 5)
             throw new Error('Debe seleccionar por lo menos 5 categorías')
 
-        if (rounds < 3 && rounds > 12)
+        if (roundsSelected < 3 && roundsSelected > 12)
             throw new Error('Cantidad de rondas inválida')
 
         this.categoriesSelected = categoriesSelected
-        this.rounds = rounds
-        this.roundsLeft = rounds
+        this.rounds = roundsSelected
+        this.roundsLeft = roundsSelected
 
         const index = rooms.findIndex(room => room.name === this.name)
         if (index === -1)

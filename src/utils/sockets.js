@@ -40,6 +40,17 @@ const init = (io) => {
                 rounds: room.getAvailableRounds() 
             })
         })
+    
+        socket.on('setConfiguration', (options, cb) => {
+            const user = new User().getById(socket.id)
+            const room = new Room().getByName(user.room)
+
+            try {
+                room.createRoomConfiguration(options)
+            } catch (e) {
+                cb(e.message)
+            }
+        })
     })
 }
 

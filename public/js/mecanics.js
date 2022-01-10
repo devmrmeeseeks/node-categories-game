@@ -29,7 +29,19 @@ const initConfiguration = () => {
     $configurationForm.addEventListener('submit', (e) => {
         e.preventDefault()
         $configurationFormButton.setAttribute('disabled', 'disabled')
-        // TODO: logic to store configuration
+        $rounds = document.querySelector('select[name=rounds]')
+        $categories = document.querySelectorAll('input[name=categories]:checked')
+        const categories = Object.values($categories).map(category => category.value)
+        socket.emit('setConfiguration', { roundsSelected: $rounds.value, categoriesSelected: categories }, err => {
+            if (err) {
+                alert(err)
+                $configurationFormButton.removeAttribute('disabled')
+                return
+            }
+
+            //Block fields
+            
+        })
     })
 }
 

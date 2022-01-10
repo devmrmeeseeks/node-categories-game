@@ -3,7 +3,7 @@
     <form>
         <div class="form-group">
             <label>Seleccione la cantidad de rondas</label>
-            <select>
+            <select name="rounds">
                 {{#rounds}}
                     <option value = "{{.}}">{{.}}</option>
                 {{/rounds}}
@@ -14,7 +14,7 @@
             <label>Selecciona las categorias para jugar</label>
             <ul>
                 {{#categories}}
-                    <li><input type = "checkbox" name = "categories-selected" value = "{{.}}">{{.}}</li>
+                    <li><input type="checkbox" name="categories" value = "{{.}}">{{.}}</li>
                 {{/categories}}
             </ul>
         </div>
