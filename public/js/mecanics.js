@@ -30,18 +30,19 @@ const initConfiguration = () => {
         e.preventDefault()
         $configurationFormButton.setAttribute('disabled', 'disabled')
         $rounds = document.querySelector('select[name=rounds]')
-        $categories = document.querySelectorAll('input[name=categories]:checked')
-        const categories = Object.values($categories).map(category => category.value)
+        $categoriesSelected = document.querySelectorAll('input[name=categories]:checked')
+        const categories = Object.values($categoriesSelected).map(category => category.value)
         socket.emit('setConfiguration', { roundsSelected: $rounds.value, categoriesSelected: categories }, err => {
             if (err) {
                 alert(err)
                 $configurationFormButton.removeAttribute('disabled')
-                return
             }
-
-            //Block fields
-            
         })
+
+        //Block fields
+        $rounds.setAttribute('disabled', 'disabled')
+        const $categories = document.querySelectorAll('input[name=categories]')
+        $categories.forEach(element => element.setAttribute('disabled', 'disabled'));
     })
 }
 
